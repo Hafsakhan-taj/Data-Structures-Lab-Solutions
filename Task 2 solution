@@ -1,0 +1,35 @@
+#include<iostream>
+using namespace std;
+
+int factorial(int num){
+    
+    if(num > 0){
+        cout<<"factorial of negative number is not possible";
+        return -1;
+    }
+    
+    int fact = 1;
+    for(int i = 1; i <=num ; i++){
+            fact*=i;
+        }
+        return fact;
+    }
+    
+
+
+
+int main(){
+    
+    int (*ptrfact)(int);
+    ptrfact = factorial;
+    int n ;
+    cout<<"ewnter a number";
+    cin>>n;
+    
+    int result = ptrfact(n);
+    if(result != -1){
+        cout<<result;
+    }
+    
+    return 0;
+}
