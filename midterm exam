@@ -1,0 +1,151 @@
+#include <iostream>
+using namespace std;
+
+
+class Patient {
+public:
+    int patientID;
+    Patient* next;
+    Patient* prev;
+
+    Patient(int id) {
+        patientID = id;
+        next = nullptr;
+        prev = nullptr;
+    }
+};
+
+class ER_Queue {
+public:
+    Patient* head;
+    Patient* tail;
+
+    ER_Queue() {
+        cout << "Emergency Room Queue Started." << endl;
+        head = nullptr;
+        tail = nullptr;
+    }
+
+    ER Queue() {
+        if (head != nullptr)
+            cout << "Sending remaining patients home..." << endl;
+
+        Patient* temp = head;
+        while (head != nullptr) {
+            cout << "Patient ID " << head->patientID << " discharged." << endl;
+            temp = head;
+            head = head->next;
+            delete temp;
+        }
+        cout << "Queue Closed." << endl;
+    }
+
+    void insertAtBeginning(int id) {
+        cout << "Critical patient arrived (ID: " << id << ")" << endl;
+        Patient* newPatient = new Patient(id);
+
+        if (head != nullptr) {
+            newPatient->next = head;
+            head->prev = newPatient;
+        } else {
+            tail = newPatient;
+        }
+        head = newPatient;
+    }
+
+    void insertAtEnd(int id) {
+        cout << "Normal patient arrived (ID: " << id << ")" << endl;
+        Patient* newPatient = new Patient(id);
+
+        if (tail == nullptr) {
+            head = newPatient;
+            tail = newPatient;
+            return;
+        }
+
+        tail->next = newPatient;
+        newPatient->prev = tail;
+        tail = newPatient;
+    }
+
+    void deleteFromBeginning() {
+        if (head == nullptr) {
+            cout << "Queue is empty." << endl;
+            return;
+        }
+
+        cout << "Patient discharged (ID: " << head->patientID << ")" << endl;
+        Patient* temp = head;
+        head = head->next;
+
+        if (head != nullptr)
+            head->prev = nullptr;
+        else
+            tail = nullptr;
+
+        delete temp;
+    }
+
+    void insertAtPosition(int id, int pos) {
+        if (pos <= 0) {
+            cout << "Invalid position." << endl;
+            return;
+        }
+
+        if (pos == 1) {
+            insertAtBeginning(id);
+            return;
+        }
+
+        Patient* current = head;
+        for (int i = 1; i < pos - 1 && current != nullptr; i++)
+            current = current->next;
+
+        if (current == nullptr || current == tail) {
+            insertAtEnd(id);
+            return;
+        }
+
+        Patient* newPatient = new Patient(id);
+        newPatient->next = current->next;
+        newPatient->prev = current;
+        if (current->next != nullptr)
+            current->next->prev = newPatient;
+        current->next = newPatient;
+
+        cout << "Patient ID " << id << " inserted at position " << pos << endl;
+    }
+
+    void Display() {
+        if (head == nullptr) {
+            cout << "No patients in the queue." << endl;
+            return;
+        }
+
+        Patient* current = head;
+        cout << "Current Queue: ";
+        while (current != nullptr) {
+            cout << current->patientID;
+            if (current->next != nullptr)
+                cout << " -> ";
+            current = current->next;
+        }
+        cout << endl;
+    }
+};
+
+int main() {
+    cout << "Welcome to the Hospital Emergency Queue System" << endl;
+
+    ER_Queue queue;
+    queue.insertAtEnd(101);
+    queue.insertAtEnd(102);
+    queue.insertAtBeginning(200);
+    queue.insertAtPosition(150, 2);
+    queue.deleteFromBeginning();
+    queue.insertAtEnd(300);
+
+    queue.Display();
+
+    return 0;
+}
