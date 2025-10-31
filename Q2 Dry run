@@ -1,0 +1,68 @@
+Start
+List is empty.
+Head = NULL, Tail = NULL
+
+Step 1 insertAtEnd(101)
+
+A new node (101) is added.
+Since the list is empty, it becomes both head and tail.
+
+List
+NULL <- [101] -> NULL
+Head = 101, Tail = 101
+
+Step 2 insertAtEnd(102)
+
+New node (102) is added after 101.
+101’s next points to 102, and 102’s prev points to 101.
+
+List
+NULL <- [101] <--> [102] -> NULL
+Head = 101, Tail = 102
+
+Step 3 insertAtBeginning(200)
+
+critical patient
+A new node (200) is added at the beginning.
+200’s next points to 101, and 101’s prev points to 200.
+
+List
+NULL <- [200] <--> [101] <--> [102] -> NULL
+Head = 200, Tail = 102
+
+Step 4 insertAtPosition(150, 2)
+
+We insert 150 at position 2 (between 200 and 101).
+
+Before: 200 → 101 → 102
+After: 200 → 150 → 101 → 102
+
+List
+NULL <- [200] <--> [150] <--> [101] <--> [102] -> NULL
+Head = 200, Tail = 102
+
+Step 5 deleteFromBeginning()
+
+The current head (200) is deleted.
+Now 150 becomes the new head.
+
+List
+NULL <- [150] <--> [101] <--> [102] -> NULL
+Head = 150, Tail = 102
+
+Step 6 insertAtEnd(300)
+
+A new node (300) is added at the end.
+102’s next points to 300, and 300’s prev points to 102.
+
+List
+NULL <- [150] <--> [101] <--> [102] <--> [300] -> NULL
+Head = 150, Tail = 300
+
+
+
+
+(a) Patient ID at Head to 150
+(b) Patient ID at Tail to 300
+(c) List from head to tail (forward traversal): 150 ,101 ,102 ,300
+(d) List from tail to head (backward traversal): 300 , 102 , 101 150
