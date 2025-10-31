@@ -1,0 +1,131 @@
+#include <iostream>
+using namespace std;
+
+class Node {
+public:
+    int patientID;
+    Node* next;
+    Node* prev;
+
+    Node(int id) {
+        patientID = id;
+        next = NULL;
+        prev = NULL;
+    }
+};
+
+class ERQueue {
+public:
+    Node* head;
+    Node* tail;
+
+    ERQueue() {
+        head = NULL;
+        tail = NULL;
+    }
+
+    void insertAtBeginning(int id) {
+        Node* newNode = new Node(id);
+        if (head == NULL) {
+            head = tail = newNode;
+        } else {
+            newNode->next = head;
+            head->prev = newNode;
+            head = newNode;
+        }
+    }
+
+    void insertAtEnd(int id) {
+        Node* newNode = new Node(id);
+        if (head == NULL) {
+            head = tail = newNode;
+        } else {
+            tail->next = newNode;
+            newNode->prev = tail;
+            tail = newNode;
+        }
+    }
+
+    void insertAtPosition(int id, int pos) {
+        if (pos == 1) {
+            insertAtBeginning(id);
+            return;
+        }
+
+        Node* newNode = new Node(id);
+        Node* temp = head;
+        int count = 1;
+
+        while (temp != NULL && count < pos - 1) {
+            temp = temp->next;
+            count++;
+        }
+
+        if (temp == NULL) {
+            cout << "Position out of range, inserting at end.\n";
+            insertAtEnd(id);
+        } else if (temp->next == NULL) {
+            insertAtEnd(id);
+        } else {
+            newNode->next = temp->next;
+            newNode->prev = temp;
+            temp->next->prev = newNode;
+            temp->next = newNode;
+        }
+    }
+
+    void deleteFromBeginning() {
+        if (head == NULL) {
+            cout << "List is empty, nothing to delete.\n";
+            return;
+        }
+        Node* temp = head;
+        if (head == tail) {
+            head = tail = NULL;
+        } else {
+            head = head->next;
+            head->prev = NULL;
+        }
+        delete temp;
+    }
+
+    void displayForward() {
+        Node* temp = head;
+        while (temp != NULL) {
+            cout << temp->patientID << " ";
+            temp = temp->next;
+        }
+        cout << endl;
+    }
+
+    void displayBackward() {
+        Node* temp = tail;
+        while (temp != NULL) {
+            cout << temp->patientID << " ";
+            temp = temp->prev;
+        }
+        cout << endl;
+    }
+};
+
+int main() {
+    ERQueue q;
+
+    q.insertAtEnd(101);
+    q.insertAtEnd(102);
+    q.insertAtBeginning(200);
+    q.insertAtPosition(150, 2);
+    q.deleteFromBeginning();
+    q.insertAtEnd(300);
+
+    cout << "Forward: ";
+    q.displayForward();
+
+    cout << "Backward: ";
+    q.displayBackward();
+
+    cout << "Head: " << (q.head ? q.head->patientID : -1) << endl;
+    cout << "Tail: " << (q.tail ? q.tail->patientID : -1) << endl;
+
+    return 0;
+}
