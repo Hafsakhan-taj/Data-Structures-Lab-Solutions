@@ -1,0 +1,101 @@
+#include <iostream>
+using namespace std;
+
+class Node{
+public:
+    int year;
+    string eventname;
+    Node *left;
+    Node *right;
+    Node(int y , string name){
+        year = y;
+        eventname = name;
+        left = right = nullptr;
+    }
+};
+
+Node* newnode(int y , string name){
+    return new Node(y , name);
+}
+
+Node* insert(Node *curr , int y , string name){
+    if(curr == nullptr){
+        return newnode(y , name);
+    }
+    if(curr->year == y){
+        return curr;
+    }
+    else if(y < curr->year){
+        curr->left = insert(curr->left , y , name);
+    }
+    else{
+        curr->right = insert(curr->right , y , name);
+    }
+    return curr;
+}
+
+Node* findMin(Node* curr){
+    while(curr->left != nullptr){
+        curr = curr->left;
+    }
+    return curr;
+}
+
+Node* del(Node* curr , int y){
+    if(curr == nullptr){
+        return curr;
+    }
+    if(y < curr->year){
+        curr->left = del(curr->left , y);
+    }
+    else if(y > curr->year){
+        curr->right = del(curr->right , y);
+    }
+    else{
+        if(curr->left == nullptr && curr->right == nullptr){
+            delete curr;
+            return nullptr;
+        }
+        else if(curr->left == nullptr){
+            Node* temp = curr->right;
+            delete curr;
+            return temp;
+        }
+        else if(curr->right == nullptr){
+            Node* temp = curr->left;
+            delete curr;
+            return temp;
+        }
+        else{
+            Node* temp = findMin(curr->right);
+            curr->year = temp->year;
+            curr->eventname = temp->eventname;
+            curr->right = del(curr->right , temp->year);
+        }
+    }
+    return curr;
+}
+
+void inorder(Node *curr){
+    if(curr == nullptr){
+        return;
+    }
+    inorder(curr->left);
+    cout<<curr->year<<" ";
+    inorder(curr->right);
+}
+
+bool search(Node *curr , int y , string name){
+    if(curr == nullptr){
+        return false;
+    }
+    if(curr->year == y){
+        return true;
+    }
+    else if(y < curr->year){
+        return search(curr->left , y , name);
+    }
+    else{
+        return search(curr->right , y , name);
+    }
+}
