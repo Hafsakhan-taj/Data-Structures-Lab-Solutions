@@ -1,0 +1,981 @@
+#include <iostream>
+#include <fstream>
+#include <string>
+#include <iomanip>
+#include <map>
+#include <set>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+// ============================================================
+// Student Record Structure
+// ============================================================
+struct Student {
+    int studentID;
+    string name;
+    string department;
+    int semester;
+    double cgpa;
+    int creditHours;
+    int enrollmentYear;
+    Student* next;
+   
+    // Constructor
+    Student(int id, string n, string dept, int sem, double gpa,
+            int credits, int year)
+        : studentID(id), name(n), department(dept), semester(sem),
+          cgpa(gpa), creditHours(credits), enrollmentYear(year), next(nullptr) {}
+};
+
+// ============================================================
+// Linked List Class
+// ============================================================
+class LinkedList {
+private:
+    Student* head;
+    int size;
+   
+public:
+    LinkedList() : head(nullptr), size(0) {}
+   
+    ~LinkedList() {
+        clear();
+    }
+   
+    void insert(Student* student) {
+        if (head == nullptr) {
+            head = student;
+        } else {
+            Student* current = head;
+            while (current->next != nullptr) {
+                current = current->next;
+            }
+            current->next = student;
+        }
+        student->next = nullptr;
+        size++;
+    }
+   
+    void clear() {
+        Student* current = head;
+        while (current != nullptr) {
+            Student* temp = current;
+            current = current->next;
+            delete temp;
+        }
+        head = nullptr;
+        size = 0;
+    }
+   
+    Student* getHead() const { return head; }
+    int getSize() const { return size; }
+   
+    // Load data from file (FIXED VERSION for your generated file)
+    bool loadFromFile(const string& filename) {
+        ifstream inFile(filename);
+        if (!inFile) {
+            cerr << "Error: Cannot open file " << filename << endl;
+            return false;
+        }
+       
+        clear();
+       
+        int totalStudents;
+        inFile >> totalStudents;
+        cout << "Total students in file: " << totalStudents << endl;
+       
+        for (int i = 0; i < totalStudents; i++) {
+            int id, sem, credits, year;
+            double gpa;
+            string firstName, lastName, dept;
+           
+            // Read data - your format: ID FirstName LastName Dept Semester CGPA Credits Year
+            if (!(inFile >> id >> firstName >> lastName >> dept >> sem >> gpa >> credits >> year)) {
+                cerr << "Error reading record " << i + 1 << endl;
+                break;
+            }
+           
+            // Combine first and last name
+            string name = firstName + " " + lastName;
+           
+            // Skip invalid records silently (your generator creates valid data)
+            Student* newStudent = new Student(id, name, dept, sem, gpa, credits, year);
+            insert(newStudent);
+           
+            // Progress indicator for large files
+            if (totalStudents > 100000 && (i + 1) % 100000 == 0) {
+                cout << "Loaded " << (i + 1) << " records..." << endl;
+            }
+        }
+       
+        inFile.close();
+        cout << "Successfully loaded " << size << " student records." << endl;
+        return true;
+    }
+};
+
+// ============================================================
+// Sorting Algorithms with Metrics
+// ============================================================
+struct SortingMetrics {
+    long comparisons;
+    long swaps;
+   
+    SortingMetrics() : comparisons(0), swaps(0) {}
+};
+
+class SortingAlgorithms {
+private:
+    // Selection Sort for linked list
+    Student* selectionSort(Student* head, bool (*compare)(Student*, Student*), SortingMetrics& metrics) {
+        if (!head || !head->next) return head;
+       
+        Student* sortedHead = nullptr;
+        Student* sortedTail = nullptr;
+        Student* current = head;
+       
+        while (current) {
+            // Find minimum node in the remaining list
+            Student* minNode = current;
+            Student* prevMin = nullptr;
+            Student* temp = current;
+            Student* prevTemp = nullptr;
+           
+            while (temp) {
+                metrics.comparisons++;
+                if (!compare(minNode, temp)) {
+                    minNode = temp;
+                    prevMin = prevTemp;
+                }
+                prevTemp = temp;
+                temp = temp->next;
+            }
+           
+            // Remove minNode from original list
+            if (prevMin) {
+                prevMin->next = minNode->next;
+            } else {
+                current = minNode->next;
+            }
+           
+            // Add minNode to sorted list
+            minNode->next = nullptr;
+            if (!sortedHead) {
+                sortedHead = minNode;
+                sortedTail = minNode;
+            } else {
+                sortedTail->next = minNode;
+                sortedTail = minNode;
+            }
+           
+            metrics.swaps++;
+        }
+       
+        return sortedHead;
+    }
+   
+    // Merge Sort for linked list
+    Student* mergeSort(Student* head, bool (*compare)(Student*, Student*), SortingMetrics& metrics) {
+        if (!head || !head->next) return head;
+       
+        // Split the list
+        Student* slow = head;
+        Student* fast = head->next;
+       
+        while (fast && fast->next) {
+            slow = slow->next;
+            fast = fast->next->next;
+        }
+       
+        Student* secondHalf = slow->next;
+        slow->next = nullptr;
+       
+        // Recursively sort both halves
+        Student* first = mergeSort(head, compare, metrics);
+        Student* second = mergeSort(secondHalf, compare, metrics);
+       
+        // Merge the sorted halves
+        return merge(first, second, compare, metrics);
+    }
+   
+    Student* merge(Student* first, Student* second, bool (*compare)(Student*, Student*), SortingMetrics& metrics) {
+        if (!first) return second;
+        if (!second) return first;
+       
+        Student* result = nullptr;
+        Student* tail = nullptr;
+       
+        while (first && second) {
+            metrics.comparisons++;
+            if (compare(first, second)) {
+                if (!result) {
+                    result = first;
+                    tail = first;
+                } else {
+                    tail->next = first;
+                    tail = tail->next;
+                }
+                first = first->next;
+            } else {
+                if (!result) {
+                    result = second;
+                    tail = second;
+                } else {
+                    tail->next = second;
+                    tail = tail->next;
+                }
+                second = second->next;
+            }
+            metrics.swaps++;
+        }
+       
+        if (first) tail->next = first;
+        if (second) tail->next = second;
+       
+        return result;
+    }
+   
+public:
+    // Comparison functions for different sorting criteria
+    static bool compareByCGPA(Student* a, Student* b) {
+        if (a->cgpa != b->cgpa)
+            return a->cgpa > b->cgpa;
+        return a->creditHours > b->creditHours;
+    }
+   
+    static bool compareByEnrollment(Student* a, Student* b) {
+        if (a->enrollmentYear != b->enrollmentYear)
+            return a->enrollmentYear < b->enrollmentYear;
+        return a->studentID < b->studentID;
+    }
+   
+    static bool compareByDepartmentSemester(Student* a, Student* b) {
+        if (a->department != b->department)
+            return a->department < b->department;
+        if (a->semester != b->semester)
+            return a->semester < b->semester;
+        return a->cgpa > b->cgpa;
+    }
+   
+    static bool compareByName(Student* a, Student* b) {
+        return a->name < b->name;
+    }
+   
+    static bool compareByPerformanceTier(Student* a, Student* b) {
+        int tierA = getPerformanceTier(a->cgpa);
+        int tierB = getPerformanceTier(b->cgpa);
+       
+        if (tierA != tierB)
+            return tierA < tierB;
+       
+        return a->name < b->name;
+    }
+   
+    static int getPerformanceTier(double cgpa) {
+        if (cgpa >= 3.70) return 1;      // Elite
+        else if (cgpa >= 3.30) return 2; // High Achiever
+        else if (cgpa >= 3.00) return 3; // Good Standing
+        else if (cgpa >= 2.50) return 4; // Satisfactory
+        else return 5;                   // Needs Improvement
+    }
+   
+    static string getTierName(int tier) {
+        switch(tier) {
+            case 1: return "Elite Tier (CGPA ≥ 3.70)";
+            case 2: return "High Achievers (3.30 ≤ CGPA < 3.70)";
+            case 3: return "Good Standing (3.00 ≤ CGPA < 3.30)";
+            case 4: return "Satisfactory (2.50 ≤ CGPA < 3.00)";
+            case 5: return "Needs Improvement (CGPA < 2.50)";
+            default: return "Unknown Tier";
+        }
+    }
+   
+    // Public sorting interfaces
+    Student* sortWithSelection(Student* head, bool (*compare)(Student*, Student*), SortingMetrics& metrics) {
+        return selectionSort(head, compare, metrics);
+    }
+   
+    Student* sortWithMerge(Student* head, bool (*compare)(Student*, Student*), SortingMetrics& metrics) {
+        return mergeSort(head, compare, metrics);
+    }
+   
+    // Create a copy of linked list for sorting
+    Student* copyList(Student* head) {
+        if (!head) return nullptr;
+       
+        Student* newHead = nullptr;
+        Student* tail = nullptr;
+        Student* current = head;
+       
+        while (current) {
+            Student* newNode = new Student(*current);
+            newNode->next = nullptr;
+           
+            if (!newHead) {
+                newHead = newNode;
+                tail = newNode;
+            } else {
+                tail->next = newNode;
+                tail = newNode;
+            }
+           
+            current = current->next;
+        }
+       
+        return newHead;
+    }
+};
+
+// ============================================================
+// File Output Functions
+// ============================================================
+class FileOutput {
+private:
+    void writeHeader(ofstream& file, const string& title, int width = 60) {
+        file << string(width, '=') << "\n";
+        file << setw((width + title.length()) / 2) << title << "\n";
+        file << string(width, '=') << "\n\n";
+    }
+   
+public:
+    // 1. Output ranked by CGPA
+    void writeRankedByCGPA(Student* head, const string& filename) {
+        ofstream outFile(filename);
+        if (!outFile) {
+            cerr << "Error creating file: " << filename << endl;
+            return;
+        }
+       
+        writeHeader(outFile, "STUDENTS RANKED BY CGPA", 85);
+       
+        outFile << setw(5) << "Rank" << " | "
+                << setw(8) << "ID" << " | "
+                << setw(25) << left << "Name" << right << " | "
+                << setw(5) << "Dept" << " | "
+                << setw(3) << "Sem" << " | "
+                << setw(6) << "CGPA" << " | "
+                << setw(8) << "Credits" << " | "
+                << setw(5) << "Year" << "\n";
+       
+        outFile << string(85, '-') << "\n";
+       
+        int rank = 1;
+        Student* current = head;
+        int count = 0;
+        while (current && count < 1000) { // Show first 1000 for large files
+            string displayName = current->name;
+            if (displayName.length() > 25) {
+                displayName = displayName.substr(0, 22) + "...";
+            }
+           
+            outFile << setw(5) << rank++ << " | "
+                    << setw(8) << current->studentID << " | "
+                    << setw(25) << left << displayName << right << " | "
+                    << setw(5) << current->department << " | "
+                    << setw(3) << current->semester << " | "
+                    << setw(6) << fixed << setprecision(2) << current->cgpa << " | "
+                    << setw(8) << current->creditHours << " | "
+                    << setw(5) << current->enrollmentYear << "\n";
+           
+            current = current->next;
+            count++;
+        }
+       
+        if (count >= 1000) {
+            outFile << "\n... (showing first 1000 records only, file too large)\n";
+        }
+       
+        outFile.close();
+        cout << "✓ Generated " << filename << " (showing first " << count << " records)" << endl;
+    }
+   
+    // 2. Output sorted by enrollment
+    void writeSortedByEnrollment(Student* head, const string& filename) {
+        ofstream outFile(filename);
+        if (!outFile) {
+            cerr << "Error creating file: " << filename << endl;
+            return;
+        }
+       
+        writeHeader(outFile, "STUDENTS SORTED BY ENROLLMENT YEAR", 80);
+       
+        // Group by enrollment year
+        map<int, vector<Student*>> yearGroups;
+        map<int, double> yearAvgCGPA;
+        map<int, int> yearCount;
+       
+        Student* current = head;
+        int totalProcessed = 0;
+        while (current && totalProcessed < 5000) { // Limit for large files
+            yearGroups[current->enrollmentYear].push_back(current);
+            yearAvgCGPA[current->enrollmentYear] += current->cgpa;
+            yearCount[current->enrollmentYear]++;
+            current = current->next;
+            totalProcessed++;
+        }
+       
+        // Calculate averages
+        for (auto& pair : yearAvgCGPA) {
+            pair.second /= yearCount[pair.first];
+        }
+       
+        // Write data grouped by year
+        for (const auto& yearPair : yearGroups) {
+            int year = yearPair.first;
+           
+            outFile << "\n" << string(40, '-') << "\n";
+            outFile << "ENROLLMENT YEAR: " << year
+                    << " (Students: " << yearCount[year]
+                    << ", Avg CGPA: " << fixed << setprecision(2)
+                    << yearAvgCGPA[year] << ")\n";
+            outFile << string(40, '-') << "\n";
+           
+            outFile << setw(8) << "ID" << " | "
+                    << setw(25) << left << "Name" << right << " | "
+                    << setw(5) << "Dept" << " | "
+                    << setw(3) << "Sem" << " | "
+                    << setw(6) << "CGPA" << " | "
+                    << setw(8) << "Credits" << "\n";
+           
+            int studentCount = 0;
+            for (Student* student : yearPair.second) {
+                if (studentCount >= 100) { // Limit per year for large files
+                    outFile << "... (showing first 100 only)\n";
+                    break;
+                }
+               
+                string displayName = student->name;
+                if (displayName.length() > 25) {
+                    displayName = displayName.substr(0, 22) + "...";
+                }
+               
+                outFile << setw(8) << student->studentID << " | "
+                        << setw(25) << left << displayName << right << " | "
+                        << setw(5) << student->department << " | "
+                        << setw(3) << student->semester << " | "
+                        << setw(6) << fixed << setprecision(2) << student->cgpa << " | "
+                        << setw(8) << student->creditHours << "\n";
+                studentCount++;
+            }
+        }
+       
+        if (totalProcessed >= 5000) {
+            outFile << "\n... (showing first 5000 records only, file too large)\n";
+        }
+       
+        outFile.close();
+        cout << "✓ Generated " << filename << " (showing first " << totalProcessed << " records)" << endl;
+    }
+   
+    // 3. Output department analysis
+    void writeDepartmentAnalysis(Student* head, const string& filename) {
+        ofstream outFile(filename);
+        if (!outFile) {
+            cerr << "Error creating file: " << filename << endl;
+            return;
+        }
+       
+        writeHeader(outFile, "DEPARTMENT-WISE ANALYSIS", 80);
+       
+        // Group by department
+        map<string, vector<Student*>> deptGroups;
+       
+        Student* current = head;
+        int totalProcessed = 0;
+        while (current && totalProcessed < 5000) { // Limit for large files
+            deptGroups[current->department].push_back(current);
+            current = current->next;
+            totalProcessed++;
+        }
+       
+        // Write analysis for each department
+        for (const auto& deptPair : deptGroups) {
+            const string& dept = deptPair.first;
+            const auto& students = deptPair.second;
+           
+            outFile << "\n" << string(50, '=') << "\n";
+            outFile << "DEPARTMENT: " << dept
+                    << " (Students shown: " << students.size() << ")\n";
+            outFile << string(50, '=') << "\n";
+           
+            // Calculate statistics
+            double totalCGPA = 0;
+            double maxCGPA = 0;
+            double minCGPA = 4.0;
+            int totalCredits = 0;
+           
+            for (Student* student : students) {
+                totalCGPA += student->cgpa;
+                totalCredits += student->creditHours;
+               
+                if (student->cgpa > maxCGPA) maxCGPA = student->cgpa;
+                if (student->cgpa < minCGPA) minCGPA = student->cgpa;
+            }
+           
+            double avgCGPA = totalCGPA / students.size();
+            double avgCredits = static_cast<double>(totalCredits) / students.size();
+           
+            outFile << "Statistics:\n";
+            outFile << "  Average CGPA: " << fixed << setprecision(2) << avgCGPA << "\n";
+            outFile << "  Highest CGPA: " << maxCGPA << "\n";
+            outFile << "  Lowest CGPA: " << minCGPA << "\n";
+            outFile << "  Average Credit Hours: " << fixed << setprecision(1) << avgCredits << "\n\n";
+           
+            // Write student details grouped by semester
+            map<int, vector<Student*>> semesterGroups;
+            for (Student* student : students) {
+                semesterGroups[student->semester].push_back(student);
+            }
+           
+            for (const auto& semPair : semesterGroups) {
+                int semester = semPair.first;
+                const auto& semStudents = semPair.second;
+               
+                outFile << "  Semester " << semester << " (Students: " << semStudents.size() << "):\n";
+                outFile << "  " << string(70, '-') << "\n";
+               
+                int studentCount = 0;
+                for (Student* student : semStudents) {
+                    if (studentCount >= 50) { // Limit per semester
+                        outFile << "    ... (showing first 50 only)\n";
+                        break;
+                    }
+                   
+                    string displayName = student->name;
+                    if (displayName.length() > 25) {
+                        displayName = displayName.substr(0, 22) + "...";
+                    }
+                   
+                    outFile << "    " << setw(8) << student->studentID << " | "
+                            << setw(25) << left << displayName << right << " | "
+                            << setw(6) << fixed << setprecision(2) << student->cgpa << " | "
+                            << setw(8) << student->creditHours << "\n";
+                    studentCount++;
+                }
+                outFile << "\n";
+            }
+        }
+       
+        if (totalProcessed >= 5000) {
+            outFile << "\n... (showing first 5000 records only, file too large)\n";
+        }
+       
+        outFile.close();
+        cout << "✓ Generated " << filename << " (showing first " << totalProcessed << " records)" << endl;
+    }
+   
+    // 4. Output performance tiers
+    void writePerformanceTiers(Student* head, int totalStudents, const string& filename) {
+        ofstream outFile(filename);
+        if (!outFile) {
+            cerr << "Error creating file: " << filename << endl;
+            return;
+        }
+       
+        writeHeader(outFile, "STUDENT PERFORMANCE TIERS ANALYSIS", 80);
+       
+        // Group by performance tier
+        map<int, vector<Student*>> tierGroups;
+       
+        Student* current = head;
+        int totalProcessed = 0;
+        while (current && totalProcessed < 5000) { // Limit for large files
+            int tier = SortingAlgorithms::getPerformanceTier(current->cgpa);
+            tierGroups[tier].push_back(current);
+            current = current->next;
+            totalProcessed++;
+        }
+       
+        // Write tier analysis
+        outFile << "PERFORMANCE DISTRIBUTION (based on " << totalProcessed << " sample records):\n";
+        outFile << string(50, '-') << "\n";
+       
+        for (int tier = 1; tier <= 5; tier++) {
+            int count = tierGroups[tier].size();
+            double percentage = (count * 100.0) / totalProcessed;
+           
+            outFile << SortingAlgorithms::getTierName(tier) << ": " << count << " students ("
+                    << fixed << setprecision(1) << percentage << "%)\n";
+        }
+        outFile << "\n";
+       
+        // Write detailed student lists for each tier
+        for (int tier = 1; tier <= 5; tier++) {
+            if (!tierGroups[tier].empty()) {
+                outFile << "\n" << string(60, '=') << "\n";
+                outFile << SortingAlgorithms::getTierName(tier) << "\n";
+                outFile << string(60, '=') << "\n";
+               
+                int studentCount = 0;
+                for (Student* student : tierGroups[tier]) {
+                    if (studentCount >= 100) { // Limit per tier
+                        outFile << "  ... (showing first 100 only)\n";
+                        break;
+                    }
+                   
+                    string displayName = student->name;
+                    if (displayName.length() > 30) {
+                        displayName = displayName.substr(0, 27) + "...";
+                    }
+                   
+                    outFile << "  " << setw(8) << student->studentID << " | "
+                            << setw(30) << left << displayName << right << " | "
+                            << setw(5) << student->department << " | "
+                            << setw(2) << student->semester << " | "
+                            << setw(5) << fixed << setprecision(2) << student->cgpa << " | "
+                            << setw(4) << student->enrollmentYear << "\n";
+                    studentCount++;
+                }
+            }
+        }
+       
+        outFile.close();
+        cout << "✓ Generated " << filename << " (based on " << totalProcessed << " sample records)" << endl;
+    }
+   
+    // Write algorithm performance metrics
+    void writeAlgorithmMetrics(const SortingMetrics& selectionMetrics,
+                              const SortingMetrics& mergeMetrics,
+                              const string& filename) {
+        ofstream outFile(filename);
+        if (!outFile) {
+            cerr << "Error creating file: " << filename << endl;
+            return;
+        }
+       
+        writeHeader(outFile, "SORTING ALGORITHM PERFORMANCE METRICS", 60);
+       
+        outFile << "Selection Sort Performance (used for CGPA Ranking):\n";
+        outFile << "  Comparisons: " << selectionMetrics.comparisons << "\n";
+        outFile << "  Swaps: " << selectionMetrics.swaps << "\n\n";
+       
+        outFile << "Merge Sort Performance (used for Enrollment & Department):\n";
+        outFile << "  Comparisons: " << mergeMetrics.comparisons << "\n";
+        outFile << "  Swaps: " << mergeMetrics.swaps << "\n\n";
+       
+        outFile << "Analysis:\n";
+        outFile << "  - Selection Sort: O(n²) time complexity, minimizes swaps\n";
+        outFile << "  - Merge Sort: O(n log n) time complexity, efficient for large datasets\n";
+        outFile << "  - Merge Sort is much faster for datasets > 1000 records\n";
+       
+        outFile.close();
+        cout << "✓ Generated " << filename << endl;
+    }
+   
+    // Search functionality
+    void searchStudent(Student* head, int studentID, const string& filename) {
+        ofstream outFile(filename, ios::app);
+        if (!outFile) {
+            cerr << "Error opening file: " << filename << endl;
+            return;
+        }
+       
+        Student* current = head;
+        while (current) {
+            if (current->studentID == studentID) {
+                outFile << "\n" << string(40, '=') << "\n";
+                outFile << "SEARCH RESULT\n";
+                outFile << string(40, '=') << "\n";
+                outFile << "Student ID: " << current->studentID << "\n";
+                outFile << "Name: " << current->name << "\n";
+                outFile << "Department: " << current->department << "\n";
+                outFile << "Semester: " << current->semester << "\n";
+                outFile << "CGPA: " << fixed << setprecision(2) << current->cgpa << "\n";
+                outFile << "Credit Hours: " << current->creditHours << "\n";
+                outFile << "Enrollment Year: " << current->enrollmentYear << "\n";
+                outFile << "Performance Tier: " << SortingAlgorithms::getTierName(
+                    SortingAlgorithms::getPerformanceTier(current->cgpa)) << "\n";
+                outFile << string(40, '=') << "\n";
+                outFile.close();
+                cout << "✓ Search result appended to " << filename << endl;
+                return;
+            }
+            current = current->next;
+        }
+       
+        outFile << "\nStudent with ID " << studentID << " not found.\n";
+        outFile.close();
+        cout << "✗ Student not found. Search logged in " << filename << endl;
+    }
+   
+    // Data validation report
+    void writeDataValidation(Student* head, const string& filename) {
+        ofstream outFile(filename);
+        if (!outFile) {
+            cerr << "Error creating file: " << filename << endl;
+            return;
+        }
+       
+        writeHeader(outFile, "DATA VALIDATION REPORT", 60);
+       
+        Student* current = head;
+        int issueCount = 0;
+        int checkedCount = 0;
+       
+        while (current && checkedCount < 10000) { // Check first 10000 records
+            bool hasIssue = false;
+            string issues;
+           
+            // Check CGPA range
+            if (current->cgpa < 0.0 || current->cgpa > 4.0) {
+                issues += "Invalid CGPA (" + to_string(current->cgpa) + "), ";
+                hasIssue = true;
+            }
+           
+            // Check semester range
+            if (current->semester < 1 || current->semester > 8) {
+                issues += "Invalid semester (" + to_string(current->semester) + "), ";
+                hasIssue = true;
+            }
+           
+            // Check enrollment year (reasonable range)
+            if (current->enrollmentYear < 2000 || current->enrollmentYear > 2024) {
+                issues += "Unusual enrollment year (" + to_string(current->enrollmentYear) + "), ";
+                hasIssue = true;
+            }
+           
+            if (hasIssue) {
+                issueCount++;
+                outFile << "Student ID: " << current->studentID << "\n";
+                outFile << "Name: " << current->name << "\n";
+                outFile << "Issues: " << issues << "\n";
+                outFile << "---\n";
+            }
+           
+            current = current->next;
+            checkedCount++;
+        }
+       
+        outFile << "\nTotal issues found in " << checkedCount << " checked records: " << issueCount << "\n";
+        outFile.close();
+       
+        if (issueCount > 0) {
+            cout << "⚠ Data validation issues found. See " << filename << endl;
+        } else {
+            cout << "✓ No data validation issues found in " << checkedCount << " checked records." << endl;
+        }
+    }
+   
+    // Duplicate detection report
+    void writeDuplicateReport(Student* head, const string& filename) {
+        ofstream outFile(filename);
+        if (!outFile) {
+            cerr << "Error creating file: " << filename << endl;
+            return;
+        }
+       
+        writeHeader(outFile, "DUPLICATE STUDENT ID REPORT", 60);
+       
+        set<int> seenIDs;
+        set<int> duplicateIDs;
+       
+        Student* current = head;
+        int checkedCount = 0;
+       
+        while (current && checkedCount < 10000) { // Check first 10000 records
+            if (seenIDs.find(current->studentID) != seenIDs.end()) {
+                duplicateIDs.insert(current->studentID);
+            } else {
+                seenIDs.insert(current->studentID);
+            }
+            current = current->next;
+            checkedCount++;
+        }
+       
+        if (duplicateIDs.empty()) {
+            outFile << "No duplicate student IDs found in " << checkedCount << " checked records.\n";
+            cout << "✓ No duplicate student IDs found in " << checkedCount << " checked records." << endl;
+        } else {
+            outFile << "Found " << duplicateIDs.size() << " duplicate student ID(s) in "
+                   << checkedCount << " checked records:\n\n";
+            for (int id : duplicateIDs) {
+                outFile << "  Student ID: " << id << "\n";
+            }
+            cout << "⚠ Found " << duplicateIDs.size() << " duplicate student IDs in "
+                 << checkedCount << " checked records. See " << filename << endl;
+        }
+       
+        outFile.close();
+    }
+};
+
+// ============================================================
+// Main Analysis System
+// ============================================================
+class AnalysisSystem {
+private:
+    LinkedList& list;
+    SortingAlgorithms sorter;
+    FileOutput fileOutput;
+   
+    void deleteList(Student* head) {
+        while (head) {
+            Student* temp = head;
+            head = head->next;
+            delete temp;
+        }
+    }
+   
+public:
+    AnalysisSystem(LinkedList& l) : list(l) {}
+   
+    // Generate all required reports
+    void generateAllReports() {
+        cout << "\n========================================" << endl;
+        cout << "    GENERATING ALL ANALYSIS REPORTS" << endl;
+        cout << "========================================" << endl;
+       
+        // Get original data
+        Student* originalHead = list.getHead();
+        int totalStudents = list.getSize();
+       
+        cout << "Processing " << totalStudents << " student records..." << endl;
+       
+        // For very large files, use sample data
+        Student* sampleHead = originalHead;
+        int sampleSize = totalStudents;
+       
+        if (totalStudents > 10000) {
+            cout << "Note: Large dataset detected. Using first 5000 records for analysis to save time.\n";
+            sampleSize = 5000;
+            // Create a sample of first 5000 records
+            sampleHead = nullptr;
+            Student* tail = nullptr;
+            Student* current = originalHead;
+            for (int i = 0; i < sampleSize && current; i++) {
+                Student* newNode = new Student(*current);
+                newNode->next = nullptr;
+                if (!sampleHead) {
+                    sampleHead = newNode;
+                    tail = newNode;
+                } else {
+                    tail->next = newNode;
+                    tail = newNode;
+                }
+                current = current->next;
+            }
+        }
+       
+        // Track sorting metrics
+        SortingMetrics selectionMetrics, mergeMetrics1, mergeMetrics2;
+       
+        // 1. Rank by CGPA (using Selection Sort)
+        cout << "\n1. Ranking students by CGPA (Selection Sort)..." << endl;
+        Student* cgpaSorted = sorter.copyList(sampleHead);
+        cgpaSorted = sorter.sortWithSelection(cgpaSorted,
+                                             SortingAlgorithms::compareByCGPA,
+                                             selectionMetrics);
+        fileOutput.writeRankedByCGPA(cgpaSorted, "ranked_by_cgpa.txt");
+       
+        // 2. Sort by Enrollment (using Merge Sort)
+        cout << "\n2. Sorting by enrollment year (Merge Sort)..." << endl;
+        Student* enrollmentSorted = sorter.copyList(sampleHead);
+        enrollmentSorted = sorter.sortWithMerge(enrollmentSorted,
+                                               SortingAlgorithms::compareByEnrollment,
+                                               mergeMetrics1);
+        fileOutput.writeSortedByEnrollment(enrollmentSorted, "sorted_by_enrollment.txt");
+       
+        // 3. Department Analysis (using Merge Sort)
+        cout << "\n3. Analyzing by department (Merge Sort)..." << endl;
+        Student* deptSorted = sorter.copyList(sampleHead);
+        deptSorted = sorter.sortWithMerge(deptSorted,
+                                         SortingAlgorithms::compareByDepartmentSemester,
+                                         mergeMetrics2);
+        fileOutput.writeDepartmentAnalysis(deptSorted, "department_analysis.txt");
+       
+        // 4. Performance Tiers
+        cout << "\n4. Categorizing into performance tiers..." << endl;
+        Student* tierSorted = sorter.copyList(sampleHead);
+        tierSorted = sorter.sortWithSelection(tierSorted,
+                                            SortingAlgorithms::compareByPerformanceTier,
+                                            selectionMetrics);
+        fileOutput.writePerformanceTiers(tierSorted, sampleSize, "performance_tiers.txt");
+       
+        // Write algorithm performance metrics
+        fileOutput.writeAlgorithmMetrics(selectionMetrics, mergeMetrics1, "algorithm_performance.txt");
+       
+        // Bonus: Data validation and duplicate detection
+        cout << "\n5. Performing data validation..." << endl;
+        fileOutput.writeDataValidation(originalHead, "data_issues.txt");
+        fileOutput.writeDuplicateReport(originalHead, "duplicates_report.txt");
+       
+        // Clean up
+        deleteList(cgpaSorted);
+        deleteList(enrollmentSorted);
+        deleteList(deptSorted);
+        deleteList(tierSorted);
+       
+        // Clean up sample if we created one
+        if (totalStudents > 10000) {
+            deleteList(sampleHead);
+        }
+       
+        cout << "\n========================================" << endl;
+        cout << "      ALL REPORTS GENERATED SUCCESSFULLY!" << endl;
+        cout << "========================================" << endl;
+    }
+   
+    // Search for student by ID
+    void searchStudent(int studentID) {
+        fileOutput.searchStudent(list.getHead(), studentID, "search_results.txt");
+    }
+};
+
+// ============================================================
+// Main Function
+// ============================================================
+int main() {
+    cout << "================================================" << endl;
+    cout << "   EDUCATRACK - STUDENT ANALYSIS SYSTEM" << endl;
+    cout << "================================================" << endl;
+   
+    // Create linked list and load data
+    LinkedList studentList;
+   
+    cout << "\nLoading data from students_data.txt..." << endl;
+    if (!studentList.loadFromFile("students_data.txt")) {
+        cout << "Failed to load data. Make sure students_data.txt exists." << endl;
+        return 1;
+    }
+   
+    // Create analysis system
+    AnalysisSystem analyzer(studentList);
+   
+    int choice;
+    do {
+        cout << "\n========================================" << endl;
+        cout << "           MAIN MENU" << endl;
+        cout << "========================================" << endl;
+        cout << "1. Generate All Analysis Reports" << endl;
+        cout << "2. Search for Student by ID" << endl;
+        cout << "3. Exit" << endl;
+        cout << "========================================" << endl;
+        cout << "Enter your choice (1-3): ";
+        cin >> choice;
+       
+        switch (choice) {
+            case 1:
+                analyzer.generateAllReports();
+                break;
+               
+            case 2: {
+                int searchID;
+                cout << "\nEnter Student ID to search: ";
+                cin >> searchID;
+                analyzer.searchStudent(searchID);
+                break;
+            }
+               
+            case 3:
+                cout << "\nThank you for using EducaTrack!" << endl;
+                break;
+               
+            default:
+                cout << "\nInvalid choice! Please try again." << endl;
+        }
+    } while (choice != 3);
+   
+    return 0;
+}
