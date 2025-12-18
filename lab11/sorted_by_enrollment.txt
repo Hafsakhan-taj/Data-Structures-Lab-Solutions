@@ -1,0 +1,239 @@
+================================================================================
+                       STUDENTS SORTED BY ENROLLMENT YEAR
+================================================================================
+
+
+----------------------------------------
+ENROLLMENT YEAR: 2015 (Students: 28, Avg CGPA: 3.23)
+----------------------------------------
+      ID | Name                      |  Dept | Sem |   CGPA |  Credits
+  200004 | Muhammad Rahman           |   EEE |   7 |   3.42 |      122
+  200015 | Javeria Tahir             |   ARC |   1 |   2.70 |       26
+  200034 | Zakariya Cheema           |   ARC |   5 |   2.80 |       88
+  200036 | Zahra Haider              |   MAT |   4 |   3.03 |       72
+  200044 | Mariam Usmani             |   CIV |   6 |   3.99 |      112
+  200046 | Shazia Tahir              |   PHY |   6 |   3.70 |      115
+  200048 | Shazia Zahid              |   CIV |   5 |   3.37 |       92
+  200053 | Haider Mufti              |   CIV |   1 |   2.67 |       17
+  200054 | Azhar Waheed              |   EEE |   4 |   3.50 |       64
+  200065 | Talha Hussain             |   ECO |   6 |   3.97 |      110
+  200072 | Kinza Warraich            |   CSE |   7 |   3.29 |      121
+  200090 | Insha Osmani              |   MAT |   3 |   2.38 |       45
+  200091 | Nadeem Tariq              |   BBA |   8 |   3.37 |      139
+  200095 | Sana Yasin                |   CHE |   8 |   3.39 |      152
+  200096 | Shahzad Naqvi             |   MAT |   2 |   3.40 |       46
+  200100 | Zain Gillani              |   CSE |   3 |   2.19 |       52
+  200103 | Faisal Farhan             |   MAT |   7 |   3.31 |      128
+  200114 | Esha Haq                  |   ECO |   2 |   3.87 |       28
+  200116 | Hassan Khalil             |   CIV |   6 |   2.67 |      114
+  200123 | Nadeem Zahid              |   MAT |   1 |   3.75 |       15
+  200136 | Dua Manzoor               |   MEC |   8 |   3.12 |      149
+  200138 | Fariha Zaheer             |   CSE |   6 |   3.84 |       99
+  200143 | Muhammad Wali             |   CHE |   5 |   2.07 |       92
+  200160 | Warda Rasheed             |   CIV |   4 |   3.59 |       77
+  200161 | Maha Raza                 |   CHE |   3 |   3.31 |       57
+  200164 | Sehar Tahir               |   ECO |   6 |   3.83 |      102
+  200175 | Karim Usmani              |   EEE |   8 |   3.44 |      137
+  200181 | Fatima Shakeel            |   ARC |   4 |   2.50 |       78
+
+----------------------------------------
+ENROLLMENT YEAR: 2016 (Students: 16, Avg CGPA: 3.47)
+----------------------------------------
+      ID | Name                      |  Dept | Sem |   CGPA |  Credits
+  200009 | Naila Ahmed               |   MEC |   6 |   3.48 |      111
+  200023 | Imran Siddiqui            |   ECO |   1 |   3.02 |       15
+  200029 | Rashid Quershi            |   CSE |   1 |   2.99 |       24
+  200047 | Bushra Malik              |   CHE |   3 |   3.77 |       48
+  200059 | Sabeen Malik              |   CIV |   5 |   3.73 |       80
+  200064 | Qurat Ramzan              |   ECO |   7 |   3.13 |      120
+  200066 | Hajra Rafiq               |   EEE |   5 |   3.09 |       92
+  200086 | Ahmed Javed               |   MEC |   6 |   3.17 |      105
+  200102 | Shazia Wali               |   EEE |   1 |   3.09 |       15
+  200140 | Hafsa Ansari              |   CIV |   6 |   3.98 |      106
+  200142 | Furqan Aslam              |   ECO |   5 |   3.87 |       80
+  200144 | Tanvir Usman              |   MEC |   6 |   3.83 |      115
+  200148 | Hira Pasha                |   BBA |   6 |   3.56 |      101
+  200154 | Jawad Rana                |   CHE |   4 |   3.68 |       80
+  200168 | Sadia Afridi              |   ECO |   1 |   3.34 |       15
+  200177 | Irfan Aziz                |   CIV |   1 |   3.73 |       23
+
+----------------------------------------
+ENROLLMENT YEAR: 2017 (Students: 26, Avg CGPA: 3.33)
+----------------------------------------
+      ID | Name                      |  Dept | Sem |   CGPA |  Credits
+  200017 | Danish Qureshi            |   CSE |   1 |   3.50 |       15
+  200020 | Hira Butt                 |   CHE |   1 |   2.38 |       23
+  200027 | Sidra Rana                |   EEE |   6 |   3.04 |      104
+  200037 | Ghulam Hashmi             |   ECO |   5 |   3.77 |       89
+  200058 | Bashir Anwar              |   CHE |   5 |   3.84 |       80
+  200063 | Haseeb Baloch             |   BBA |   6 |   3.17 |      100
+  200067 | Bushra Usman              |   BBA |   6 |   3.88 |      107
+  200069 | Raza Haider               |   PHY |   8 |   2.18 |      144
+  200076 | Naveed Khalil             |   MEC |   2 |   3.68 |       42
+  200083 | Zain Haq                  |   CSE |   2 |   3.09 |       38
+  200089 | Rashid Ghazi              |   CHE |   7 |   3.51 |      117
+  200106 | Noor Nadeem               |   CHE |   2 |   3.45 |       30
+  200115 | Lubna Ahmed               |   CHE |   5 |   2.74 |       85
+  200127 | Salman Karim              |   EEE |   4 |   3.62 |       62
+  200130 | Karim Haider              |   CSE |   1 |   3.56 |       15
+  200133 | Rida Qureshi              |   MAT |   8 |   3.36 |      134
+  200134 | Ali Jamil                 |   MEC |   7 |   3.90 |      124
+  200137 | Tanvir Qadir              |   PHY |   5 |   3.79 |       93
+  200146 | Mariam Nasir              |   MAT |   1 |   3.27 |       21
+  200153 | Haider Malik              |   ARC |   2 |   3.19 |       35
+  200159 | Amjad Qureshi             |   BBA |   2 |   3.09 |       46
+  200170 | Madiha Ghazi              |   CIV |   2 |   2.31 |       31
+  200173 | Majid Zia                 |   CIV |   3 |   3.48 |       49
+  200179 | Aliza Hashmi              |   ARC |   6 |   3.40 |      101
+  200189 | Khadija Ahmed             |   PHY |   8 |   3.83 |      138
+  200190 | Muhammad Usmani           |   EEE |   8 |   3.50 |      147
+
+----------------------------------------
+ENROLLMENT YEAR: 2018 (Students: 23, Avg CGPA: 3.24)
+----------------------------------------
+      ID | Name                      |  Dept | Sem |   CGPA |  Credits
+  200012 | Usama Saleem              |   CSE |   1 |   3.20 |       15
+  200016 | Ibrahim Manzoor           |   CIV |   5 |   3.28 |       93
+  200021 | Yasir Zahid               |   MEC |   1 |   3.28 |       24
+  200028 | Yousuf Baig               |   CIV |   3 |   3.04 |       58
+  200056 | Hana Durrani              |   BBA |   1 |   2.70 |       24
+  200060 | Sumaya Saeed              |   BBA |   2 |   3.32 |       37
+  200068 | Luqman Tahir              |   ARC |   5 |   3.16 |       94
+  200070 | Saima Yaqoob              |   BBA |   2 |   2.89 |       28
+  200073 | Huda Wahab                |   BBA |   4 |   3.23 |       70
+  200074 | Nasir Ahmed               |   MEC |   7 |   3.08 |      122
+  200077 | Jamil Uzair               |   BBA |   8 |   3.03 |      151
+  200078 | Hiba Younas               |   CIV |   5 |   3.95 |       98
+  200080 | Usman Zaman               |   ARC |   6 |   2.79 |      108
+  200082 | Shazia Bhatti             |   PHY |   5 |   3.54 |       99
+  200099 | Rizwan Khan               |   PHY |   8 |   3.96 |      150
+  200110 | Hiba Farhan               |   ARC |   4 |   2.23 |       77
+  200119 | Hussein Kamran            |   PHY |   5 |   2.81 |       93
+  200131 | Ghulam Iqbal              |   PHY |   8 |   3.87 |      140
+  200132 | Mehreen Siddiqui          |   MAT |   6 |   3.48 |      108
+  200147 | Ayat Afridi               |   CIV |   4 |   3.78 |       79
+  200152 | Zainab Baloch             |   ECO |   3 |   3.20 |       46
+  200162 | Kinza Usman               |   ECO |   4 |   3.70 |       73
+  200169 | Waqar Zahid               |   CSE |   2 |   2.96 |       29
+
+----------------------------------------
+ENROLLMENT YEAR: 2019 (Students: 19, Avg CGPA: 3.32)
+----------------------------------------
+      ID | Name                      |  Dept | Sem |   CGPA |  Credits
+  200001 | Sumaya Pasha              |   CIV |   2 |   3.33 |       41
+  200022 | Mubarak Manzoor           |   CIV |   6 |   2.73 |      112
+  200024 | Zainab Shah               |   CHE |   1 |   3.06 |       25
+  200032 | Mahira Naqvi              |   CIV |   8 |   3.47 |      139
+  200040 | Huda Bhatti               |   MAT |   8 |   3.68 |      137
+  200045 | Yasir Usman               |   MAT |   2 |   3.75 |       32
+  200055 | Faiza Ramzan              |   MEC |   5 |   3.29 |       81
+  200057 | Dua Shafi                 |   ARC |   4 |   3.41 |       74
+  200071 | Sami Qureshi              |   MAT |   4 |   3.24 |       71
+  200085 | Talha Manzoor             |   CIV |   8 |   3.74 |      143
+  200098 | Luqman Younas             |   CHE |   4 |   2.71 |       65
+  200104 | Muhammad Majeed           |   CIV |   4 |   3.86 |       81
+  200108 | Yasir Pervez              |   CIV |   4 |   3.49 |       62
+  200117 | Tanvir Junaid             |   EEE |   7 |   3.59 |      132
+  200122 | Huma Dar                  |   ECO |   5 |   3.03 |       95
+  200126 | Nasir Saeed               |   CSE |   2 |   3.39 |       44
+  200157 | Tania Kamran              |   ARC |   3 |   2.56 |       47
+  200176 | Layla Ramzan              |   CIV |   5 |   3.29 |       84
+  200188 | Ruqayyah Tirmizi          |   MEC |   4 |   3.54 |       79
+
+----------------------------------------
+ENROLLMENT YEAR: 2020 (Students: 18, Avg CGPA: 3.20)
+----------------------------------------
+      ID | Name                      |  Dept | Sem |   CGPA |  Credits
+  200002 | Raza Kazmi                |   CHE |   3 |   3.22 |       56
+  200007 | Bashir Ansari             |   EEE |   3 |   3.08 |       48
+  200013 | Noor Ismail               |   PHY |   1 |   3.22 |       18
+  200014 | Haider Qureshi            |   ARC |   1 |   2.79 |       17
+  200026 | Maha Butt                 |   CHE |   3 |   3.24 |       56
+  200038 | Aisha Durrani             |   MEC |   3 |   3.50 |       49
+  200041 | Sehar Nasir               |   PHY |   1 |   3.44 |       15
+  200042 | Fahad Leghari             |   CIV |   4 |   3.89 |       64
+  200043 | Arslan Farhan             |   EEE |   6 |   3.00 |      100
+  200049 | Aisha Baloch              |   ECO |   2 |   3.05 |       43
+  200088 | Faisal Irfan              |   CHE |   3 |   3.47 |       57
+  200097 | Warda Zaman               |   BBA |   7 |   3.48 |      116
+  200113 | Nazia Shafiq              |   PHY |   5 |   2.85 |       86
+  200141 | Samina Latif              |   BBA |   4 |   3.44 |       62
+  200145 | Ayat Naveed               |   ECO |   6 |   3.20 |      112
+  200151 | Kamran Siddiqui           |   CIV |   1 |   2.62 |       15
+  200158 | Sadia Nadeem              |   CSE |   6 |   2.99 |       98
+  200167 | Mariam Wahab              |   MAT |   1 |   3.09 |       17
+
+----------------------------------------
+ENROLLMENT YEAR: 2021 (Students: 15, Avg CGPA: 3.20)
+----------------------------------------
+      ID | Name                      |  Dept | Sem |   CGPA |  Credits
+  200010 | Naila Rana                |   CIV |   1 |   3.95 |       15
+  200011 | Bashir Junaid             |   BBA |   7 |   3.28 |      128
+  200030 | Irfan Shah                |   CSE |   4 |   3.19 |       74
+  200050 | Bilal Usman               |   CIV |   3 |   2.97 |       55
+  200075 | Naila Ghani               |   EEE |   6 |   2.31 |      116
+  200081 | Zakariya Hassan           |   CSE |   6 |   2.90 |       99
+  200093 | Rafia Qureshi             |   EEE |   7 |   3.61 |      117
+  200107 | Ghazala Irfan             |   CSE |   8 |   3.13 |      140
+  200109 | Tahir Imam                |   MAT |   3 |   3.77 |       59
+  200118 | Faisal Wali               |   CSE |   3 |   3.58 |       51
+  200124 | Aslam Ghazi               |   EEE |   2 |   2.72 |       34
+  200128 | Kubra Daud                |   EEE |   1 |   3.68 |       15
+  200155 | Rabia Aziz                |   CIV |   7 |   2.74 |      120
+  200156 | Iqra Younas               |   EEE |   1 |   2.61 |       15
+  200182 | Usama Zahid               |   CIV |   7 |   3.57 |      132
+
+----------------------------------------
+ENROLLMENT YEAR: 2022 (Students: 26, Avg CGPA: 3.23)
+----------------------------------------
+      ID | Name                      |  Dept | Sem |   CGPA |  Credits
+  200008 | Tayyaba Kamal             |   ARC |   6 |   3.63 |      117
+  200018 | Luqman Majeed             |   ECO |   3 |   2.15 |       59
+  200019 | Nadeem Gillani            |   MAT |   3 |   3.95 |       57
+  200025 | Danish Yousuf             |   CSE |   6 |   3.04 |      100
+  200031 | Khadija Zia               |   CIV |   6 |   3.33 |      108
+  200035 | Nayab Qureshi             |   EEE |   4 |   3.98 |       73
+  200039 | Haider Fahim              |   ECO |   5 |   3.04 |       91
+  200051 | Umar Rizvi                |   PHY |   1 |   2.32 |       23
+  200062 | Tayyaba Butt              |   ARC |   1 |   3.25 |       15
+  200079 | Nimra Shafiq              |   ECO |   3 |   2.87 |       53
+  200087 | Raza Akhtar               |   MAT |   1 |   3.65 |       27
+  200094 | Rizwan Qadir              |   CSE |   3 |   3.20 |       53
+  200112 | Tooba Shafiq              |   CIV |   6 |   3.14 |      102
+  200121 | Omer Gillani              |   ECO |   6 |   3.03 |      106
+  200129 | Sehrish Shafi             |   EEE |   5 |   3.38 |       86
+  200135 | Ruqayyah Uzair            |   CSE |   6 |   2.15 |      114
+  200149 | Anam Ramzan               |   CSE |   6 |   2.58 |      108
+  200163 | Tariq Mirza               |   PHY |   7 |   3.54 |      123
+  200166 | Aisha Tahir               |   EEE |   4 |   3.12 |       78
+  200171 | Osama Raza                |   ARC |   5 |   3.83 |       97
+  200174 | Abdullah Ahmed            |   CIV |   7 |   3.08 |      116
+  200178 | Ismail Naveed             |   CHE |   3 |   3.67 |       63
+  200180 | Jawad Rana                |   CIV |   7 |   3.41 |      134
+  200183 | Haris Hameed              |   CIV |   5 |   3.73 |       94
+  200185 | Fariha Naseer             |   CSE |   3 |   3.25 |       60
+  200187 | Hajra Majeed              |   CHE |   2 |   3.61 |       37
+
+----------------------------------------
+ENROLLMENT YEAR: 2023 (Students: 19, Avg CGPA: 3.32)
+----------------------------------------
+      ID | Name                      |  Dept | Sem |   CGPA |  Credits
+  200003 | Sara Abbasi               |   CHE |   1 |   3.59 |       25
+  200005 | Sehar Naseer              |   PHY |   6 |   2.81 |      106
+  200006 | Madiha Uzair              |   ARC |   4 |   3.63 |       72
+  200033 | Qurat Zaidi               |   CSE |   5 |   3.37 |       97
+  200052 | Huda Niazi                |   ECO |   7 |   2.75 |      119
+  200061 | Tania Aslam               |   MAT |   8 |   3.79 |      135
+  200084 | Ibrahim Nadeem            |   CHE |   6 |   3.12 |      112
+  200092 | Nasir Tanveer             |   ARC |   4 |   3.26 |       76
+  200101 | Arslan Saleem             |   BBA |   6 |   3.08 |      106
+  200105 | Maryam Akhtar             |   MAT |   1 |   3.86 |       19
+  200111 | Madiha Butt               |   CHE |   1 |   3.74 |       20
+  200120 | Omar Mughal               |   CSE |   6 |   3.11 |      115
+  200125 | Rani Ismail               |   EEE |   1 |   3.96 |       25
+  200139 | Imran Raza                |   MEC |   2 |   3.40 |       26
+  200150 | Fizza Jamil               |   ARC |   4 |   3.58 |       80
+  200165 | Rida Warraich             |   CSE |   6 |   2.36 |      108
+  200172 | Javeria Karim             |   ECO |   6 |   2.66 |      108
+  200184 | Sidra Pirzada             |   PHY |   2 |   3.88 |       31
+  200186 | Arslan Ilyas              |   ARC |   7 |   3.22 |      121

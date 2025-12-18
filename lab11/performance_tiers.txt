@@ -1,0 +1,222 @@
+================================================================================
+                       STUDENT PERFORMANCE TIERS ANALYSIS
+================================================================================
+
+PERFORMANCE DISTRIBUTION (based on 190 sample records):
+--------------------------------------------------
+Elite Tier (CGPA ≥ 3.70): 39 students (20.5%)
+High Achievers (3.30 ≤ CGPA < 3.70): 57 students (30.0%)
+Good Standing (3.00 ≤ CGPA < 3.30): 53 students (27.9%)
+Satisfactory (2.50 ≤ CGPA < 3.00): 29 students (15.3%)
+Needs Improvement (CGPA < 2.50): 12 students (6.3%)
+
+
+============================================================
+Elite Tier (CGPA ≥ 3.70)
+============================================================
+    200134 | Ali Jamil                      |   MEC |  7 |  3.90 | 2017
+    200147 | Ayat Afridi                    |   CIV |  4 |  3.78 | 2018
+    200058 | Bashir Anwar                   |   CHE |  5 |  3.84 | 2017
+    200047 | Bushra Malik                   |   CHE |  3 |  3.77 | 2016
+    200067 | Bushra Usman                   |   BBA |  6 |  3.88 | 2017
+    200114 | Esha Haq                       |   ECO |  2 |  3.87 | 2015
+    200042 | Fahad Leghari                  |   CIV |  4 |  3.89 | 2020
+    200138 | Fariha Zaheer                  |   CSE |  6 |  3.84 | 2015
+    200142 | Furqan Aslam                   |   ECO |  5 |  3.87 | 2016
+    200037 | Ghulam Hashmi                  |   ECO |  5 |  3.77 | 2017
+    200131 | Ghulam Iqbal                   |   PHY |  8 |  3.87 | 2018
+    200140 | Hafsa Ansari                   |   CIV |  6 |  3.98 | 2016
+    200183 | Haris Hameed                   |   CIV |  5 |  3.73 | 2022
+    200078 | Hiba Younas                    |   CIV |  5 |  3.95 | 2018
+    200177 | Irfan Aziz                     |   CIV |  1 |  3.73 | 2016
+    200189 | Khadija Ahmed                  |   PHY |  8 |  3.83 | 2017
+    200162 | Kinza Usman                    |   ECO |  4 |  3.70 | 2018
+    200111 | Madiha Butt                    |   CHE |  1 |  3.74 | 2023
+    200044 | Mariam Usmani                  |   CIV |  6 |  3.99 | 2015
+    200105 | Maryam Akhtar                  |   MAT |  1 |  3.86 | 2023
+    200104 | Muhammad Majeed                |   CIV |  4 |  3.86 | 2019
+    200019 | Nadeem Gillani                 |   MAT |  3 |  3.95 | 2022
+    200123 | Nadeem Zahid                   |   MAT |  1 |  3.75 | 2015
+    200010 | Naila Rana                     |   CIV |  1 |  3.95 | 2021
+    200035 | Nayab Qureshi                  |   EEE |  4 |  3.98 | 2022
+    200171 | Osama Raza                     |   ARC |  5 |  3.83 | 2022
+    200125 | Rani Ismail                    |   EEE |  1 |  3.96 | 2023
+    200099 | Rizwan Khan                    |   PHY |  8 |  3.96 | 2018
+    200059 | Sabeen Malik                   |   CIV |  5 |  3.73 | 2016
+    200164 | Sehar Tahir                    |   ECO |  6 |  3.83 | 2015
+    200046 | Shazia Tahir                   |   PHY |  6 |  3.70 | 2015
+    200184 | Sidra Pirzada                  |   PHY |  2 |  3.88 | 2023
+    200109 | Tahir Imam                     |   MAT |  3 |  3.77 | 2021
+    200065 | Talha Hussain                  |   ECO |  6 |  3.97 | 2015
+    200085 | Talha Manzoor                  |   CIV |  8 |  3.74 | 2019
+    200061 | Tania Aslam                    |   MAT |  8 |  3.79 | 2023
+    200137 | Tanvir Qadir                   |   PHY |  5 |  3.79 | 2017
+    200144 | Tanvir Usman                   |   MEC |  6 |  3.83 | 2016
+    200045 | Yasir Usman                    |   MAT |  2 |  3.75 | 2019
+
+============================================================
+High Achievers (3.30 ≤ CGPA < 3.70)
+============================================================
+    200038 | Aisha Durrani                  |   MEC |  3 |  3.50 | 2020
+    200179 | Aliza Hashmi                   |   ARC |  6 |  3.40 | 2017
+    200054 | Azhar Waheed                   |   EEE |  4 |  3.50 | 2015
+    200017 | Danish Qureshi                 |   CSE |  1 |  3.50 | 2017
+    200057 | Dua Shafi                      |   ARC |  4 |  3.41 | 2019
+    200103 | Faisal Farhan                  |   MAT |  7 |  3.31 | 2015
+    200088 | Faisal Irfan                   |   CHE |  3 |  3.47 | 2020
+    200118 | Faisal Wali                    |   CSE |  3 |  3.58 | 2021
+    200150 | Fizza Jamil                    |   ARC |  4 |  3.58 | 2023
+    200187 | Hajra Majeed                   |   CHE |  2 |  3.61 | 2022
+    200148 | Hira Pasha                     |   BBA |  6 |  3.56 | 2016
+    200040 | Huda Bhatti                    |   MAT |  8 |  3.68 | 2019
+    200139 | Imran Raza                     |   MEC |  2 |  3.40 | 2023
+    200178 | Ismail Naveed                  |   CHE |  3 |  3.67 | 2022
+    200180 | Jawad Rana                     |   CIV |  7 |  3.41 | 2022
+    200154 | Jawad Rana                     |   CHE |  4 |  3.68 | 2016
+    200130 | Karim Haider                   |   CSE |  1 |  3.56 | 2017
+    200175 | Karim Usmani                   |   EEE |  8 |  3.44 | 2015
+    200031 | Khadija Zia                    |   CIV |  6 |  3.33 | 2022
+    200128 | Kubra Daud                     |   EEE |  1 |  3.68 | 2021
+    200006 | Madiha Uzair                   |   ARC |  4 |  3.63 | 2023
+    200161 | Maha Raza                      |   CHE |  3 |  3.31 | 2015
+    200032 | Mahira Naqvi                   |   CIV |  8 |  3.47 | 2019
+    200173 | Majid Zia                      |   CIV |  3 |  3.48 | 2017
+    200132 | Mehreen Siddiqui               |   MAT |  6 |  3.48 | 2018
+    200004 | Muhammad Rahman                |   EEE |  7 |  3.42 | 2015
+    200190 | Muhammad Usmani                |   EEE |  8 |  3.50 | 2017
+    200091 | Nadeem Tariq                   |   BBA |  8 |  3.37 | 2015
+    200009 | Naila Ahmed                    |   MEC |  6 |  3.48 | 2016
+    200126 | Nasir Saeed                    |   CSE |  2 |  3.39 | 2019
+    200076 | Naveed Khalil                  |   MEC |  2 |  3.68 | 2017
+    200106 | Noor Nadeem                    |   CHE |  2 |  3.45 | 2017
+    200033 | Qurat Zaidi                    |   CSE |  5 |  3.37 | 2023
+    200093 | Rafia Qureshi                  |   EEE |  7 |  3.61 | 2021
+    200089 | Rashid Ghazi                   |   CHE |  7 |  3.51 | 2017
+    200087 | Raza Akhtar                    |   MAT |  1 |  3.65 | 2022
+    200133 | Rida Qureshi                   |   MAT |  8 |  3.36 | 2017
+    200188 | Ruqayyah Tirmizi               |   MEC |  4 |  3.54 | 2019
+    200168 | Sadia Afridi                   |   ECO |  1 |  3.34 | 2016
+    200127 | Salman Karim                   |   EEE |  4 |  3.62 | 2017
+    200141 | Samina Latif                   |   BBA |  4 |  3.44 | 2020
+    200095 | Sana Yasin                     |   CHE |  8 |  3.39 | 2015
+    200003 | Sara Abbasi                    |   CHE |  1 |  3.59 | 2023
+    200041 | Sehar Nasir                    |   PHY |  1 |  3.44 | 2020
+    200129 | Sehrish Shafi                  |   EEE |  5 |  3.38 | 2022
+    200096 | Shahzad Naqvi                  |   MAT |  2 |  3.40 | 2015
+    200082 | Shazia Bhatti                  |   PHY |  5 |  3.54 | 2018
+    200048 | Shazia Zahid                   |   CIV |  5 |  3.37 | 2015
+    200001 | Sumaya Pasha                   |   CIV |  2 |  3.33 | 2019
+    200060 | Sumaya Saeed                   |   BBA |  2 |  3.32 | 2018
+    200117 | Tanvir Junaid                  |   EEE |  7 |  3.59 | 2019
+    200163 | Tariq Mirza                    |   PHY |  7 |  3.54 | 2022
+    200008 | Tayyaba Kamal                  |   ARC |  6 |  3.63 | 2022
+    200182 | Usama Zahid                    |   CIV |  7 |  3.57 | 2021
+    200160 | Warda Rasheed                  |   CIV |  4 |  3.59 | 2015
+    200097 | Warda Zaman                    |   BBA |  7 |  3.48 | 2020
+    200108 | Yasir Pervez                   |   CIV |  4 |  3.49 | 2019
+
+============================================================
+Good Standing (3.00 ≤ CGPA < 3.30)
+============================================================
+    200174 | Abdullah Ahmed                 |   CIV |  7 |  3.08 | 2022
+    200086 | Ahmed Javed                    |   MEC |  6 |  3.17 | 2016
+    200049 | Aisha Baloch                   |   ECO |  2 |  3.05 | 2020
+    200166 | Aisha Tahir                    |   EEE |  4 |  3.12 | 2022
+    200159 | Amjad Qureshi                  |   BBA |  2 |  3.09 | 2017
+    200043 | Arslan Farhan                  |   EEE |  6 |  3.00 | 2020
+    200186 | Arslan Ilyas                   |   ARC |  7 |  3.22 | 2023
+    200101 | Arslan Saleem                  |   BBA |  6 |  3.08 | 2023
+    200145 | Ayat Naveed                    |   ECO |  6 |  3.20 | 2020
+    200007 | Bashir Ansari                  |   EEE |  3 |  3.08 | 2020
+    200011 | Bashir Junaid                  |   BBA |  7 |  3.28 | 2021
+    200025 | Danish Yousuf                  |   CSE |  6 |  3.04 | 2022
+    200136 | Dua Manzoor                    |   MEC |  8 |  3.12 | 2015
+    200055 | Faiza Ramzan                   |   MEC |  5 |  3.29 | 2019
+    200185 | Fariha Naseer                  |   CSE |  3 |  3.25 | 2022
+    200107 | Ghazala Irfan                  |   CSE |  8 |  3.13 | 2021
+    200039 | Haider Fahim                   |   ECO |  5 |  3.04 | 2022
+    200153 | Haider Malik                   |   ARC |  2 |  3.19 | 2017
+    200066 | Hajra Rafiq                    |   EEE |  5 |  3.09 | 2016
+    200063 | Haseeb Baloch                  |   BBA |  6 |  3.17 | 2017
+    200073 | Huda Wahab                     |   BBA |  4 |  3.23 | 2018
+    200122 | Huma Dar                       |   ECO |  5 |  3.03 | 2019
+    200016 | Ibrahim Manzoor                |   CIV |  5 |  3.28 | 2018
+    200084 | Ibrahim Nadeem                 |   CHE |  6 |  3.12 | 2023
+    200023 | Imran Siddiqui                 |   ECO |  1 |  3.02 | 2016
+    200030 | Irfan Shah                     |   CSE |  4 |  3.19 | 2021
+    200077 | Jamil Uzair                    |   BBA |  8 |  3.03 | 2018
+    200072 | Kinza Warraich                 |   CSE |  7 |  3.29 | 2015
+    200176 | Layla Ramzan                   |   CIV |  5 |  3.29 | 2019
+    200068 | Luqman Tahir                   |   ARC |  5 |  3.16 | 2018
+    200026 | Maha Butt                      |   CHE |  3 |  3.24 | 2020
+    200146 | Mariam Nasir                   |   MAT |  1 |  3.27 | 2017
+    200167 | Mariam Wahab                   |   MAT |  1 |  3.09 | 2020
+    200074 | Nasir Ahmed                    |   MEC |  7 |  3.08 | 2018
+    200092 | Nasir Tanveer                  |   ARC |  4 |  3.26 | 2023
+    200013 | Noor Ismail                    |   PHY |  1 |  3.22 | 2020
+    200120 | Omar Mughal                    |   CSE |  6 |  3.11 | 2023
+    200121 | Omer Gillani                   |   ECO |  6 |  3.03 | 2022
+    200064 | Qurat Ramzan                   |   ECO |  7 |  3.13 | 2016
+    200002 | Raza Kazmi                     |   CHE |  3 |  3.22 | 2020
+    200094 | Rizwan Qadir                   |   CSE |  3 |  3.20 | 2022
+    200071 | Sami Qureshi                   |   MAT |  4 |  3.24 | 2019
+    200102 | Shazia Wali                    |   EEE |  1 |  3.09 | 2016
+    200027 | Sidra Rana                     |   EEE |  6 |  3.04 | 2017
+    200062 | Tayyaba Butt                   |   ARC |  1 |  3.25 | 2022
+    200112 | Tooba Shafiq                   |   CIV |  6 |  3.14 | 2022
+    200012 | Usama Saleem                   |   CSE |  1 |  3.20 | 2018
+    200021 | Yasir Zahid                    |   MEC |  1 |  3.28 | 2018
+    200028 | Yousuf Baig                    |   CIV |  3 |  3.04 | 2018
+    200036 | Zahra Haider                   |   MAT |  4 |  3.03 | 2015
+    200083 | Zain Haq                       |   CSE |  2 |  3.09 | 2017
+    200152 | Zainab Baloch                  |   ECO |  3 |  3.20 | 2018
+    200024 | Zainab Shah                    |   CHE |  1 |  3.06 | 2019
+
+============================================================
+Satisfactory (2.50 ≤ CGPA < 3.00)
+============================================================
+    200149 | Anam Ramzan                    |   CSE |  6 |  2.58 | 2022
+    200124 | Aslam Ghazi                    |   EEE |  2 |  2.72 | 2021
+    200050 | Bilal Usman                    |   CIV |  3 |  2.97 | 2021
+    200181 | Fatima Shakeel                 |   ARC |  4 |  2.50 | 2015
+    200053 | Haider Mufti                   |   CIV |  1 |  2.67 | 2015
+    200014 | Haider Qureshi                 |   ARC |  1 |  2.79 | 2020
+    200056 | Hana Durrani                   |   BBA |  1 |  2.70 | 2018
+    200116 | Hassan Khalil                  |   CIV |  6 |  2.67 | 2015
+    200052 | Huda Niazi                     |   ECO |  7 |  2.75 | 2023
+    200119 | Hussein Kamran                 |   PHY |  5 |  2.81 | 2018
+    200156 | Iqra Younas                    |   EEE |  1 |  2.61 | 2021
+    200172 | Javeria Karim                  |   ECO |  6 |  2.66 | 2023
+    200015 | Javeria Tahir                  |   ARC |  1 |  2.70 | 2015
+    200151 | Kamran Siddiqui                |   CIV |  1 |  2.62 | 2020
+    200115 | Lubna Ahmed                    |   CHE |  5 |  2.74 | 2017
+    200098 | Luqman Younas                  |   CHE |  4 |  2.71 | 2019
+    200022 | Mubarak Manzoor                |   CIV |  6 |  2.73 | 2019
+    200113 | Nazia Shafiq                   |   PHY |  5 |  2.85 | 2020
+    200079 | Nimra Shafiq                   |   ECO |  3 |  2.87 | 2022
+    200155 | Rabia Aziz                     |   CIV |  7 |  2.74 | 2021
+    200029 | Rashid Quershi                 |   CSE |  1 |  2.99 | 2016
+    200158 | Sadia Nadeem                   |   CSE |  6 |  2.99 | 2020
+    200070 | Saima Yaqoob                   |   BBA |  2 |  2.89 | 2018
+    200005 | Sehar Naseer                   |   PHY |  6 |  2.81 | 2023
+    200157 | Tania Kamran                   |   ARC |  3 |  2.56 | 2019
+    200080 | Usman Zaman                    |   ARC |  6 |  2.79 | 2018
+    200169 | Waqar Zahid                    |   CSE |  2 |  2.96 | 2018
+    200034 | Zakariya Cheema                |   ARC |  5 |  2.80 | 2015
+    200081 | Zakariya Hassan                |   CSE |  6 |  2.90 | 2021
+
+============================================================
+Needs Improvement (CGPA < 2.50)
+============================================================
+    200110 | Hiba Farhan                    |   ARC |  4 |  2.23 | 2018
+    200020 | Hira Butt                      |   CHE |  1 |  2.38 | 2017
+    200090 | Insha Osmani                   |   MAT |  3 |  2.38 | 2015
+    200018 | Luqman Majeed                  |   ECO |  3 |  2.15 | 2022
+    200170 | Madiha Ghazi                   |   CIV |  2 |  2.31 | 2017
+    200143 | Muhammad Wali                  |   CHE |  5 |  2.07 | 2015
+    200075 | Naila Ghani                    |   EEE |  6 |  2.31 | 2021
+    200069 | Raza Haider                    |   PHY |  8 |  2.18 | 2017
+    200165 | Rida Warraich                  |   CSE |  6 |  2.36 | 2023
+    200135 | Ruqayyah Uzair                 |   CSE |  6 |  2.15 | 2022
+    200051 | Umar Rizvi                     |   PHY |  1 |  2.32 | 2022
+    200100 | Zain Gillani                   |   CSE |  3 |  2.19 | 2015
